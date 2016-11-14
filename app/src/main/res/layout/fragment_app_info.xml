@@ -1,0 +1,26 @@
+<layout>
+    <data>
+        <variable
+            name="appInfo"
+            type="String"/>
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+        android:padding="@dimen/spacing_small_8">
+
+        <ImageView
+            android:id="@+id/about_icon"
+            android:layout_width="@dimen/about_icon_size"
+            android:layout_height="@dimen/about_icon_size"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_app_icon"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/spacing_huge_72"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_16"
+            android:text="@{appInfo}"/>
+    </RelativeLayout>
+</layout>
