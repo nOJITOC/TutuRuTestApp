@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity
             mBinding.drawerLayout.closeDrawer(GravityCompat.START);
         } else if (!mPresenter.isIdleViewState()) {
             mPresenter.setIdleState();
+            mPresenter.freeCities();
         } else {
             super.onBackPressed();
         }
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity
         if (mPresenter.isToViewState())
             mBinding.toEt.setText(mPresenter.getStationTitle(stationId));
         mPresenter.setIdleState();
+        mPresenter.freeCities();
     }
 
     @Override

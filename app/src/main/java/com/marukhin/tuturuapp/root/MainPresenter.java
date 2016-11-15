@@ -51,7 +51,6 @@ public class MainPresenter extends Presenter<IMainView> {
             }
         }
         setCities();
-
     }
 
     private void saveCitiesToDb() {
@@ -107,7 +106,7 @@ public class MainPresenter extends Presenter<IMainView> {
                 });
     }
 
-    private void setCities() {
+    public void setCities() {
         switch (state) {
             case ViewState.FROM:
                 setCities(fromText);
@@ -115,6 +114,8 @@ public class MainPresenter extends Presenter<IMainView> {
             case ViewState.TO:
                 setCities(toText);
                 break;
+            default:
+                freeCities();
         }
     }
 
@@ -122,6 +123,9 @@ public class MainPresenter extends Presenter<IMainView> {
         getView().showCities(mModel.getCities(query, state));
     }
 
+    public void freeCities(){
+        getView().showCities(new ArrayList<>());
+    }
 
     public String getStationTitle(Long stationId) {
         return mModel.getStation(stationId).toString();
